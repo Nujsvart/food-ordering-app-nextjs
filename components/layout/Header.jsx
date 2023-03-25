@@ -1,7 +1,12 @@
+import { useState } from "react";
 import Logo from "../ui/Logo";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
+import OutsideClickHandler from "react-outside-click-handler";
+import Title from "../ui/Title";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="h-[5.5rem] bg-secondary">
       <div className="container flex items-center justify-between h-full mx-auto text-white">
@@ -26,19 +31,26 @@ const Header = () => {
 
         <div className="flex items-center gap-x-3">
           <a href="#">
-            <FaUserAlt />
+            <FaUserAlt className="transition-all hover:text-primary" />
           </a>
           <a href="#">
-            <FaShoppingCart />
+            <FaShoppingCart className="transition-all hover:text-primary" />
           </a>
-          <a href="#">
-            <FaSearch />
-          </a>
+          <button onClick={() => setIsOpen(true)}>
+            <FaSearch className="transition-all hover:text-primary" />
+          </button>
           <a href="#">
             <button className="btn-primary">Order Online</button>
           </a>
         </div>
       </div>
+      {isOpen && (
+        <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
+          <div>
+            <Title className="text-red-600 text-9xl">Search</Title>
+          </div>
+        </OutsideClickHandler>
+      )}
     </header>
   );
 };

@@ -15,8 +15,8 @@ const Header = () => {
         <Logo />
 
         <nav
-          className={`absolute top-0 left-0 grid w-full h-full place-content-center sm:static text-center sm:bg-transparent bg-white ${
-            isMenuOpen !== true && "hidden"
+          className={`absolute top-0 left-0 w-full h-full sm:static text-center sm:bg-transparent bg-white sm:flex hidden sm:w-auto sm:h-auto ${
+            isMenuOpen && "!grid place-content-center"
           }`}
         >
           <ul className="flex flex-col text-black uppercase sm: sm:gap-x-5 gap-y-4 sm:text-white sm:flex-row">

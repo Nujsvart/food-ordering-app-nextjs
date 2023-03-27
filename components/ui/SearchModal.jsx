@@ -8,7 +8,7 @@ const SearchModal = ({ setIsOpen }) => {
   return (
     <div className="absolute top-0 left-0 z-50 grid w-screen h-screen bg-black place-content-center bg-opacity-40">
       <OutsideClickHandler onOutsideClick={() => setIsOpen(false)}>
-        <div className="w-[28rem] relative p-5 h-[28rem] bg-white  rounded-md	shadow-lg	">
+        <div className="relative p-5 bg-white rounded-md shadow-lg md:w-[600px] w-[370px] ">
           <button onClick={() => setIsOpen(false)}>
             <GrClose className="absolute w-6 h-6 right-3 top-3" />
           </button>

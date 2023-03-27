@@ -1,18 +1,25 @@
 import { useState } from "react";
 import Logo from "../ui/Logo";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import { GrClose } from "react-icons/gr";
 import SearchModal from "../ui/SearchModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="h-[5.5rem] bg-secondary">
       <div className="container flex items-center justify-between h-full mx-auto text-white">
         <Logo />
 
-        <nav>
-          <ul className="flex uppercase gap-x-5">
+        <nav
+          className={`absolute top-0 left-0 grid w-full h-full place-content-center sm:static text-center sm:bg-transparent bg-white ${
+            isMenuOpen !== true && "hidden"
+          }`}
+        >
+          <ul className="flex flex-col text-black uppercase sm: sm:gap-x-5 gap-y-4 sm:text-white sm:flex-row">
             <li>
               <a href="">Home</a>
             </li>
@@ -26,6 +33,14 @@ const Header = () => {
               <a href="">Book Table</a>
             </li>
           </ul>
+          {isMenuOpen && (
+            <button
+              className="absolute z-50 right-10 top-5"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <GrClose size={30} />
+            </button>
+          )}
         </nav>
 
         <div className="flex items-center gap-x-3">
@@ -38,9 +53,15 @@ const Header = () => {
           <button onClick={() => setIsOpen(true)}>
             <FaSearch className="transition-all hover:text-primary" />
           </button>
-          <a href="#">
+          <a href="#" className="hidden md:flex whitespace-nowrap">
             <button className="btn-primary">Order Online</button>
           </a>
+          <button
+            className="sm:hidden "
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <FaBars className="transition-all hover:text-primary" />
+          </button>
         </div>
       </div>
       {isOpen && <SearchModal setIsOpen={setIsOpen} />}

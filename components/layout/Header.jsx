@@ -1,21 +1,28 @@
 import { useState } from "react";
 import Logo from "../ui/Logo";
-import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
-import { FaBars } from "react-icons/fa";
-import { GrClose } from "react-icons/gr";
 import SearchModal from "../ui/SearchModal";
+import { FaUserAlt, FaShoppingCart, FaSearch, FaBars } from "react-icons/fa";
+import { GrClose } from "react-icons/gr";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const router = useRouter();
+  console.log(router);
+
   return (
-    <header className="h-[5.5rem] bg-secondary">
+    <header
+      className={`h-[5.5rem] z-50 relative ${
+        router.asPath !== "/" && "bg-secondary"
+      }`}
+    >
       <div className="container flex items-center justify-between h-full mx-auto text-white">
         <Logo />
 
         <nav
-          className={`absolute top-0 left-0 w-full h-full sm:static text-center sm:bg-transparent bg-white sm:flex hidden sm:w-auto sm:h-auto ${
+          className={`absolute top-0 left-0 w-full h-screen sm:static text-center sm:bg-transparent bg-white sm:flex hidden sm:w-auto sm:h-auto ${
             isMenuOpen && "!grid place-content-center"
           }`}
         >

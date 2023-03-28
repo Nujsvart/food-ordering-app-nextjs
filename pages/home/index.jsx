@@ -1,7 +1,11 @@
-import React from "react";
+import Caraousel from "@/components/ui/Caraousel";
 
 const Index = () => {
-  return <div></div>;
+  return (
+    <div className="w-full h-screen -mt-[5.5rem]">
+      <Caraousel />
+    </div>
+  );
 };
 
 export default Index;

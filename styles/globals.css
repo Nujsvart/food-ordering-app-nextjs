@@ -23,3 +23,11 @@ nav > ul > li > a {
 .btn-primary {
   @apply text-white px-[1.875rem] py-[0.5rem] rounded-3xl bg-primary cursor-pointer hover:opacity-90 transition-all;
 }
+
+.slick-dots {
+  @apply absolute bottom-20;
+}
+
+.slick-dots .slick-active div {
+  @apply bg-primary w-4 h-4;
+}

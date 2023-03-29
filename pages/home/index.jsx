@@ -1,3 +1,4 @@
+import About from "@/components/layout/About";
 import Campaigns from "@/components/layout/Campaigns";
 import MenuWrapper from "@/components/menuproducts/MenuWrapper";
 import Caraousel from "@/components/ui/Caraousel";
@@ -7,7 +8,8 @@ const Index = () => {
     <div className="w-full h-screen -mt-[5.5rem]">
       <Caraousel />
       <Campaigns />
-      <MenuWrapper/>
+      <MenuWrapper />
+      <About/>
     </div>
   );
 };

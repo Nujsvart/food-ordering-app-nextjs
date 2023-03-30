@@ -2,7 +2,8 @@ import About from "@/components/layout/About";
 import Campaigns from "@/components/layout/Campaigns";
 import MenuWrapper from "@/components/menuproducts/MenuWrapper";
 import Caraousel from "@/components/ui/Caraousel";
-import Form from "@/components/Form/Form";
+import Reservation from "@/components/layout/Reservation";
+
 
 const Index = () => {
   return (
@@ -11,7 +12,8 @@ const Index = () => {
       <Campaigns />
       <MenuWrapper />
       <About />
-      <Form />
+      <Reservation/>
+
     </div>
   );
 };

@@ -2,16 +2,53 @@ import Input from "../Form/Input";
 import Title from "../ui/Title";
 
 const Reservation = () => {
+  const inputs = [
+    {
+      id: 1,
+      name: "fullName",
+      type: "text",
+      text: "Your Full Name",
+    },
+    {
+      id: 2,
+      name: "phoneNumber",
+      type: "tel",
+      text: "Your Phone Number",
+    },
+    {
+      id: 3,
+      name: "email",
+      type: "email",
+      text: "Your Email",
+    },
+    {
+      id: 4,
+      name: "numberOfPersons",
+      type: "number",
+      text: "How Many Persons?",
+    },
+    {
+      id: 5,
+      name: "date",
+      type: "datetime-local",
+      text: "",
+    },
+  ];
+
   return (
-    <div className="container mx-auto py-10 flex flex-col items-start">
+    <div className="container mx-auto py-10 flex flex-col">
       <Title className="text-3xl">Book A Table</Title>
       <div className="flex gap-8 w-full flex-col sm:flex-row my-6 justify-center">
-        <div className="flex flex-col flex-1">
-          <Input type="text" text="Your Full Name" />
-          <Input type="tel" text="Your Phone Number" />
-          <Input type="email" text="Your Email" />
-          <Input type="number" text="How Many Persons?" />
-          <Input type="date" />
+        <div className="flex flex-col flex-1 items-start">
+          {inputs.map(input => (
+            <Input
+              key={input.id}
+              name={input.name}
+              type={input.type}
+              text={input.text}
+            />
+          ))}
+          <button className="btn-primary uppercase text-sm ">Book Now</button>
         </div>
         <div className="flex flex-1  ">
           <iframe
@@ -23,7 +60,6 @@ const Reservation = () => {
           ></iframe>
         </div>
       </div>
-      <button className="btn-primary uppercase text-sm ">Book Now</button>
     </div>
   );
 };

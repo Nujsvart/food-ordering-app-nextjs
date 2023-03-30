@@ -22,7 +22,12 @@ const SearchModal = ({ setIsOpen }) => {
             <ul>
               <li className="flex items-center justify-between p-2 transition-all cursor-pointer hover:bg-primary">
                 <div>
-                  <Image src="/images/food.png" width={50} height={50} />
+                  <Image
+                    src="/images/food.png"
+                    width={50}
+                    height={50}
+                    alt="pizza"
+                  />
                 </div>
                 <span className="font-bold">Good Pizza</span>
                 <span className="font-bold">$10</span>
@@ -30,7 +35,12 @@ const SearchModal = ({ setIsOpen }) => {
 
               <li className="flex items-center justify-between p-2 transition-all cursor-pointer hover:bg-primary">
                 <div>
-                  <Image src="/images/food.png" width={50} height={50} />
+                  <Image
+                    src="/images/food.png"
+                    width={50}
+                    height={50}
+                    alt="pizza"
+                  />
                 </div>
                 <span className="font-bold">Good Pizza</span>
                 <span className="font-bold">$10</span>
@@ -38,7 +48,12 @@ const SearchModal = ({ setIsOpen }) => {
 
               <li className="flex items-center justify-between p-2 transition-all cursor-pointer hover:bg-primary">
                 <div>
-                  <Image src="/images/food.png" width={50} height={50} />
+                  <Image
+                    src="/images/food.png"
+                    width={50}
+                    height={50}
+                    alt="pizza"
+                  />
                 </div>
                 <span className="font-bold">Good Pizza</span>
                 <span className="font-bold">$10</span>
@@ -46,7 +61,12 @@ const SearchModal = ({ setIsOpen }) => {
 
               <li className="flex items-center justify-between p-2 transition-all cursor-pointer hover:bg-primary">
                 <div>
-                  <Image src="/images/food.png" width={50} height={50} />
+                  <Image
+                    src="/images/food.png"
+                    width={50}
+                    height={50}
+                    alt="pizza"
+                  />
                 </div>
                 <span className="font-bold">Good Pizza</span>
                 <span className="font-bold">$10</span>

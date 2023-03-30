@@ -6,7 +6,7 @@ const About = () => {
     <div className="bg-secondary my-10">
       <div className="flex py-20 px-10 justify-center items-center gap-16 md:flex-row flex-col-reverse">
         <div className="relative ">
-          <Image src="/images/about-img.png" width={400} height={400} />
+          <Image src="/images/about-img.png" width={400} height={400} alt="about" />
         </div>
 
         <div className="text-white flex flex-col gap-y-5 basis-1/3 items-start">

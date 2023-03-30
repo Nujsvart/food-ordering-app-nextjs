@@ -9,6 +9,7 @@ const MenuItem = () => {
           src="/images/f1.png"
           width={160}
           height={160}
+          alt="pizza"
           className="py-5 hover:scale-105 transition-all duration-500"
         />
       </div>

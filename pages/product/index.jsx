@@ -7,7 +7,12 @@ const Index = () => {
     <div className="container mx-auto">
       <div className="flex h-screen gap-20 sm:flex-row flex-col">
         <div className="relative flex-1">
-          <Image src="/images/f1.png" layout="fill" objectFit="contain" />
+          <Image
+            src="/images/f1.png"
+            layout="fill"
+            objectFit="contain"
+            alt="pizza"
+          />
         </div>
         <div className="flex-1 flex justify-center gap-y-4 flex-col items-start">
           <Title className="text-3xl">Good Pizza</Title>
@@ -24,19 +29,34 @@ const Index = () => {
             <h4 className="font-bold">Choose the size</h4>
             <div className="flex gap-x-14 items-center">
               <div className="relative">
-                <Image src="/images/pizzasize.png" width={40} height={40} />
+                <Image
+                  src="/images/pizzasize.png"
+                  width={40}
+                  height={40}
+                  alt="pizza"
+                />
                 <span className="absolute -top-2 -right-6 text-xs bg-primary rounded-full px-3 py-0.5 font-medium">
                   Small
                 </span>
               </div>
               <div className="relative">
-                <Image src="/images/pizzasize.png" width={50} height={50} />
+                <Image
+                  src="/images/pizzasize.png"
+                  width={50}
+                  height={50}
+                  alt="pizza"
+                />
                 <span className="absolute -top-2 -right-6 text-xs bg-primary rounded-full px-3 py-0.5 font-medium">
                   Medium
                 </span>
               </div>
               <div className="relative">
-                <Image src="/images/pizzasize.png" width={60} height={60} />
+                <Image
+                  src="/images/pizzasize.png"
+                  width={60}
+                  height={60}
+                  alt="pizza"
+                />
                 <span className="absolute -top-2 -right-6 text-xs bg-primary rounded-full px-3 py-0.5 font-medium">
                   Large
                 </span>

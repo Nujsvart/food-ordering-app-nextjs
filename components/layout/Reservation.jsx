@@ -1,6 +1,7 @@
 import Input from "../Form/Input";
 import Title from "../ui/Title";
 import { useFormik } from "formik";
+import { reservationSchema } from "@/schema/reservation";
 
 const Reservation = () => {
   const onSubmit = async (values, actions) => {
@@ -20,8 +21,8 @@ const Reservation = () => {
       date: "",
     },
     onSubmit,
+    validationSchema: reservationSchema,
   });
-
   const inputs = [
     {
       id: 1,
@@ -29,6 +30,8 @@ const Reservation = () => {
       type: "text",
       text: "Your Full Name",
       value: formik.values.fullName,
+      errorMessage: formik.errors.fullName,
+      touched: formik.touched.fullName,
     },
     {
       id: 2,
@@ -36,6 +39,8 @@ const Reservation = () => {
       type: "tel",
       text: "Your Phone Number",
       value: formik.values.phoneNumber,
+      errorMessage: formik.errors.phoneNumber,
+      touched: formik.touched.phoneNumber,
     },
     {
       id: 3,
@@ -43,6 +48,8 @@ const Reservation = () => {
       type: "email",
       text: "Your Email",
       value: formik.values.email,
+      errorMessage: formik.errors.email,
+      touched: formik.touched.email,
     },
     {
       id: 4,
@@ -50,6 +57,8 @@ const Reservation = () => {
       type: "number",
       text: "How Many Persons?",
       value: formik.values.numberOfPersons,
+      errorMessage: formik.errors.numberOfPersons,
+      touched: formik.touched.numberOfPersons,
     },
     {
       id: 5,
@@ -69,8 +78,14 @@ const Reservation = () => {
           className="flex flex-col flex-1 items-start"
         >
           {inputs.map(input => (
-            <Input key={input.id} {...input} onChange={formik.handleChange} />
+            <Input
+              key={input.id}
+              {...input}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
           ))}
+
           <button type="submit" className="btn-primary uppercase text-sm ">
             Book Now
           </button>

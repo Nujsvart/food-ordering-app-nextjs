@@ -10,9 +10,16 @@ import {
   SiPinterest,
 } from "react-icons/si";
 
+import { useRouter } from "next/router";
+
 const Footer = () => {
+  const router = useRouter();
   return (
-    <div className="mt-[8rem] bg-secondary text-white py-5">
+    <div
+      className={`bg-secondary text-white py-5 ${
+        router.asPath !== "/" ? "mt-20" : "mt-[8rem]"
+      }`}
+    >
       <div className="container mx-auto grid grid-rows-3 sm:grid-cols-3 sm:grid-rows-none py-12 gap-y-10 sm:gap-y-0">
         <div className="flex flex-col items-center gap-y-3">
           <Title className="text-2xl font-light">Contact Us</Title>

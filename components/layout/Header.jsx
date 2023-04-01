@@ -52,18 +52,18 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-x-3">
-          <a href="">
+          <Link href="auth/login">
             <FaUserAlt className="transition-all hover:text-primary" />
-          </a>
-          <a href="">
+          </Link>
+          <Link href="">
             <FaShoppingCart className="transition-all hover:text-primary" />
-          </a>
+          </Link>
           <button onClick={() => setIsOpen(true)}>
             <FaSearch className="transition-all hover:text-primary" />
           </button>
-          <a href="" className="hidden md:flex whitespace-nowrap">
+          <Link href="" className="hidden md:flex whitespace-nowrap">
             <button className="btn-primary">Order Online</button>
-          </a>
+          </Link>
           <button
             className="sm:hidden "
             onClick={() => setIsMenuOpen(!isMenuOpen)}

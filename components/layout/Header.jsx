@@ -4,12 +4,14 @@ import SearchModal from "../ui/SearchModal";
 import { FaUserAlt, FaShoppingCart, FaSearch, FaBars } from "react-icons/fa";
 import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const router = useRouter();
+  console.log(router);
 
   return (
     <header
@@ -27,16 +29,16 @@ const Header = () => {
         >
           <ul className="flex flex-col text-black uppercase sm: sm:gap-x-5 gap-y-4 sm:text-white sm:flex-row">
             <li>
-              <a href="">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="">Menu</a>
+              <Link href="/menu">Menu</Link>
             </li>
             <li>
-              <a href="">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <a href="">Book Table</a>
+              <Link href="/booktable">Book Table</Link>
             </li>
           </ul>
           {isMenuOpen && (
@@ -50,16 +52,16 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-x-3">
-          <a href="#">
+          <a href="">
             <FaUserAlt className="transition-all hover:text-primary" />
           </a>
-          <a href="#">
+          <a href="">
             <FaShoppingCart className="transition-all hover:text-primary" />
           </a>
           <button onClick={() => setIsOpen(true)}>
             <FaSearch className="transition-all hover:text-primary" />
           </button>
-          <a href="#" className="hidden md:flex whitespace-nowrap">
+          <a href="" className="hidden md:flex whitespace-nowrap">
             <button className="btn-primary">Order Online</button>
           </a>
           <button

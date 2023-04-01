@@ -3,7 +3,7 @@ import MenuItem from "./MenuItem";
 
 const MenuWrapper = () => {
   return (
-    <section className="container mx-auto w-full">
+    <section className="container mx-auto w-full mt-10">
       <div className="flex flex-col items-center gap-y-10 w-full">
         <Title className="text-4xl">Our Menu</Title>
         <div>

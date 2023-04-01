@@ -5,7 +5,7 @@ import Title from "@/components/ui/Title";
 const Index = () => {
   return (
     <div className="container mx-auto">
-      <div className="flex mt-20 gap-20 sm:flex-row flex-col">
+      <div className="flex mt-20 gap-20 sm:flex-row flex-col h-screen sm:h-auto">
         <div className="relative flex-1">
           <Image
             src="/images/f1.png"

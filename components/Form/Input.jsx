@@ -1,8 +1,6 @@
 import React from "react";
 
 const Input = ({ type, text, errorMessage, touched, ...inputProps }) => {
-  console.log(errorMessage);
-
   return (
     <div className="w-full">
       <label

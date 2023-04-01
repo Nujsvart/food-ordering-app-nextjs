@@ -5,7 +5,6 @@ import { reservationSchema } from "@/schema/reservation";
 
 const Reservation = () => {
   const onSubmit = async (values, actions) => {
-    console.log(values);
     // 1 saniye bekle
     await new Promise(resolve => setTimeout(resolve, 1000));
     // formu resetle

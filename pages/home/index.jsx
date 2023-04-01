@@ -4,6 +4,7 @@ import MenuWrapper from "@/components/menuproducts/MenuWrapper";
 import Caraousel from "@/components/ui/Caraousel";
 import Reservation from "@/components/layout/Reservation";
 import Customers from "@/components/customers/Customers";
+import Footer from "@/components/layout/Footer";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <About />
       <Reservation />
       <Customers />
+      <Footer/>
     </div>
   );
 };

@@ -50,9 +50,9 @@ const Customers = () => {
   };
 
   return (
-    <div className="container mx-auto py-4 relative group space-y-9 mt-10">
+    <div className="container mx-auto py-4 relative group space-y-9 mt-10 ">
       <Title className="text-4xl text-center">What Says Our Customers</Title>
-      <div className=" text-white sliderbox group">
+      <div className=" text-white sliderbox">
         <Slider {...settings}>
           <CustomerItem image="/images/client1.jpg" />
           <CustomerItem image="/images/client2.jpg" />

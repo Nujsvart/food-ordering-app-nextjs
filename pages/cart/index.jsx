@@ -4,8 +4,8 @@ import ShoppingCart from "@/components/cart/ShoppingCart";
 const Cart = () => {
   return (
     <div className=" w-full h-[calc(100vh_-_5.5rem)] py-10 px-10 ">
-      <div className="flex  space-x-5 h-full ">
-        <table className="table flex-1 self-start">
+      <div className="flex flex-col lg:flex-row  space-y-10 lg:space-x-5 h-full lg:space-y-0">
+        <table className="table lg:flex-1 lg:self-start ">
           {/* head */}
           <thead>
             <tr className="text-white">

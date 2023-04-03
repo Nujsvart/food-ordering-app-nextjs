@@ -14,6 +14,7 @@ const Index = () => {
       <About />
       <Reservation />
       <Customers />
+      <Footer />
     </div>
   );
 };

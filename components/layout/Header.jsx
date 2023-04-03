@@ -55,7 +55,7 @@ const Header = () => {
           <Link href="auth/login">
             <FaUserAlt className="transition-all hover:text-primary" />
           </Link>
-          <Link href="">
+          <Link href="/cart">
             <FaShoppingCart className="transition-all hover:text-primary" />
           </Link>
           <button onClick={() => setIsOpen(true)}>

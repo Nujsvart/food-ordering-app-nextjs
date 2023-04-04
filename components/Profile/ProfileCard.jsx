@@ -28,7 +28,7 @@ const ProfileCard = ({ tab, setTab }) => {
   ];
 
   return (
-    <div className="border h-max w-1/4 items-center flex flex-col justify-center pt-4">
+    <div className="border h-max sm:w-1/4 items-center flex flex-col justify-center pt-4">
       <div className="avatar online ">
         <div className="w-24 rounded-full relative">
           <Image src="/images/dumush.jpg" layout="fill" />

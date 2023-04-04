@@ -33,7 +33,7 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: false
+    themes: false,
   },
   plugins: [require("daisyui")],
 };

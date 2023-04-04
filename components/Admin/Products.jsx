@@ -62,7 +62,9 @@ const Products = () => {
               <td className="text-center">{item.title}</td>
               <td className="text-center">{item.price}</td>
               <td className="text-center">
-                <button className="btn btn-sm btn-error">{item.action}</button>
+                <button className="btn btn-sm btn-error text-white">
+                  {item.action}
+                </button>
               </td>
             </tr>
           ))}

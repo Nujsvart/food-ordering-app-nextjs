@@ -9,7 +9,7 @@ const OrderStatus = () => {
       <div className="flex flex-col items-center">
         <MdOutlinePayments size={80} /> <span>Payment</span>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center animate-pulse">
         <BiHappyAlt size={80} />
         <span>Preparing</span>
       </div>

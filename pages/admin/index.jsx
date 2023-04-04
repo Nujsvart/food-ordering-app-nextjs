@@ -1,7 +1,7 @@
 import AdminLogin from "@/components/Admin/AdminLogin";
 
-const Admin = () => {
+const Index = () => {
   return <AdminLogin />;
 };
 
-export default Admin;
+export default Index;

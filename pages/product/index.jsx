@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
+import { addProduct } from "@/redux/slices/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Index = () => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
+
+  const [price, setPrice] = useState(0);
+  const [extras, setExtras] = useState(0);
   const [productInfo, setProductInfo] = useState({
     products: [
       {
@@ -22,26 +28,51 @@ const Index = () => {
         price: 30,
       },
     ],
-
     extras: [
       {
         name: "Ketcap",
-        price: 10,
+        price: 1,
         checked: false,
       },
       {
         name: "Mayonez",
-        price: 20,
+        price: 2,
         checked: false,
       },
       {
-        name: "AciSos",
-        price: 30,
+        name: "Aci Sos",
+        price: 3,
         checked: false,
       },
     ],
-    totalPrice: 10,
   });
+
+  const productData = {
+    id: 1,
+    size: "Small",
+    price: 10,
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At recusandae placeat beatae doloremque, inventore quidem? Iste illo suscipit nulla nemo!",
+    quantity: 1,
+    extras: {
+      id: 1,
+      name: "Ketcap",
+      price: 1,
+    },
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addProduct({ ...productData[0], price, extras, quantity: 1 }));
+  };
+
+  const handleExtras = itemPrice => {
+    setExtras(prev => prev + itemPrice);
+    const newPrice = price + extras;
+    setPrice(newPrice);
+  };
+
+  console.log(cart);
+  console.log(price);
+  console.log(extras);
 
   return (
     <div className="container mx-auto">
@@ -57,7 +88,7 @@ const Index = () => {
         <div className="flex-1 flex justify-center gap-y-4 flex-col items-start">
           <Title className="text-3xl">Good Pizza</Title>
           <span className="text-primary text-2xl font-bold underline underline-offset-4">
-            ${productInfo.totalPrice}
+            ${price}
           </span>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
@@ -69,7 +100,11 @@ const Index = () => {
             <h4 className="font-bold">Choose the size</h4>
             <div className="flex gap-x-14 items-center">
               {productInfo.products.map((item, index) => (
-                <div className="relative cursor-pointer" key={index}>
+                <div
+                  className="relative cursor-pointer"
+                  key={index}
+                  onClick={() => setPrice(item.price)}
+                >
                   <Image
                     src="/images/pizzasize.png"
                     width={item.width}
@@ -94,13 +129,16 @@ const Index = () => {
                     id={item.name}
                     checked={item.checked}
                     className="accent-primary mr-2"
+                    onChange={() => handleExtras(item.price)}
                   />
                   <span className="text-sm font-semibold">{item.name}</span>
                 </label>
               ))}
             </div>
           </div>
-          <button className="btn-primary">Add to Cart</button>
+          <button className="btn-primary" onClick={() => handleAddToCart()}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

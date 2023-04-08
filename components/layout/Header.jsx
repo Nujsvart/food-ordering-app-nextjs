@@ -5,6 +5,7 @@ import { FaUserAlt, FaShoppingCart, FaSearch, FaBars } from "react-icons/fa";
 import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,8 @@ const Header = () => {
 
   const router = useRouter();
   console.log(router);
+
+  const products = useSelector(state => state.cart.products);
 
   return (
     <header
@@ -57,6 +60,7 @@ const Header = () => {
           </Link>
           <Link href="/cart">
             <FaShoppingCart className="transition-all hover:text-primary" />
+            <span>{products.length > 0 && products.length}</span>
           </Link>
           <button onClick={() => setIsOpen(true)}>
             <FaSearch className="transition-all hover:text-primary" />

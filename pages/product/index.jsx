@@ -1,31 +1,43 @@
 import { useState } from "react";
 import Image from "next/image";
 import Title from "@/components/ui/Title";
-import { addProduct } from "@/redux/slices/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { addProduct } from "/redux/Slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 const Index = () => {
-  const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
-  const [price, setPrice] = useState(0);
-  const [extras, setExtras] = useState(0);
-  const [productInfo, setProductInfo] = useState({
+  const productInfo = {
     products: [
       {
+        id: 1,
         size: "Small",
+        name: "Good Pizza",
         width: 40,
         price: 10,
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At recusandae placeat beatae doloremque, inventore quidem? Iste illo suscipit nulla nemo!",
+        quantity: 1,
+        extraOption: {},
       },
       {
+        id: 2,
         size: "Medium",
         width: 50,
         price: 20,
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At recusandae placeat beatae doloremque, inventore quidem? Iste illo suscipit nulla nemo!",
+        name: "Good Pizza",
+        quantity: 1,
+        extraOption: {},
       },
       {
+        id: 3,
         size: "Large",
         width: 60,
         price: 30,
+        name: "Good Pizza",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At recusandae placeat beatae doloremque, inventore quidem? Iste illo suscipit nulla nemo!",
+        quantity: 1,
+        extraOption: {},
       },
     ],
     extras: [
@@ -45,34 +57,28 @@ const Index = () => {
         checked: false,
       },
     ],
-  });
-
-  const productData = {
-    id: 1,
-    size: "Small",
-    price: 10,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. At recusandae placeat beatae doloremque, inventore quidem? Iste illo suscipit nulla nemo!",
-    quantity: 1,
-    extras: {
-      id: 1,
-      name: "Ketcap",
-      price: 1,
-    },
   };
+
+  const [price, setPrice] = useState(0);
+  const [extras, setExtras] = useState([]);
+  const [itemPrice, setItemPrice] = useState(productInfo.products[0].price);
 
   const handleAddToCart = () => {
-    dispatch(addProduct({ ...productData[0], price, extras, quantity: 1 }));
+    dispatch(
+      addProduct({ ...productInfo.products[0], price, extraOptions: extras })
+    );
   };
 
-  const handleExtras = itemPrice => {
-    setExtras(prev => prev + itemPrice);
-    const newPrice = price + extras;
+  const handleExtras = item => {
+    setExtras(prev => [...prev, item]);
+    const newPrice = price + item.price;
     setPrice(newPrice);
   };
 
-  console.log(cart);
-  console.log(price);
-  console.log(extras);
+  const handleItemPrice = itemPrice => {
+    setItemPrice(itemPrice);
+    setPrice(itemPrice);
+  };
 
   return (
     <div className="container mx-auto">
@@ -88,7 +94,7 @@ const Index = () => {
         <div className="flex-1 flex justify-center gap-y-4 flex-col items-start">
           <Title className="text-3xl">Good Pizza</Title>
           <span className="text-primary text-2xl font-bold underline underline-offset-4">
-            ${price}
+            ${itemPrice}
           </span>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
@@ -103,7 +109,7 @@ const Index = () => {
                 <div
                   className="relative cursor-pointer"
                   key={index}
-                  onClick={() => setPrice(item.price)}
+                  onClick={() => handleItemPrice(item.price)}
                 >
                   <Image
                     src="/images/pizzasize.png"
@@ -129,7 +135,7 @@ const Index = () => {
                     id={item.name}
                     checked={item.checked}
                     className="accent-primary mr-2"
-                    onChange={() => handleExtras(item.price)}
+                    onChange={() => handleExtras(item)}
                   />
                   <span className="text-sm font-semibold">{item.name}</span>
                 </label>
